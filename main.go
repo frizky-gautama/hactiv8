@@ -3,13 +3,13 @@ package main
 import "fmt"
 
 func main() {
-	for i := 0; i <= 10; i++ {
-		if i%2 == 0 {
-			fmt.Println(i, "Genap")
-		} else {
-			fmt.Println(i, "Ganjil")
-		}
-	}
+	// for i := 0; i <= 10; i++ {
+	// 	if i%2 == 0 {
+	// 		fmt.Println(i, "Genap")
+	// 	} else {
+	// 		fmt.Println(i, "Ganjil")
+	// 	}
+	// }
 
 	temen := []string{"Sigit Setiawan", "Yosef Brahmantyo", "Bayu", "Satrio", "Agus", "Yudha", "Peter", "Aulia", "Thalia", "Giva"}
 
