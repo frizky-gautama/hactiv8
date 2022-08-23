@@ -10,4 +10,11 @@ func main() {
 			fmt.Println(i, "Ganjil")
 		}
 	}
+
+	temen := []string{"Sigit Setiawan", "Yosef Brahmantyo", "Bayu", "Satrio", "Agus", "Yudha", "Peter", "Aulia", "Thalia", "Giva"}
+
+	for _, s := range temen {
+		fmt.Println("Halo Assalamualaikum", s+", Salam Kenal Yak")
+		fmt.Println("=============================================")
+	}
 }
