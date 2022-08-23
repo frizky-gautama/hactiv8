@@ -13,8 +13,8 @@ func main() {
 
 	temen := []string{"Sigit Setiawan", "Yosef Brahmantyo", "Bayu", "Satrio", "Agus", "Yudha", "Peter", "Aulia", "Thalia", "Giva"}
 
-	for _, s := range temen {
-		fmt.Println("Halo Assalamualaikum", s+", Salam Kenal Yak")
+	for _, nama := range temen {
+		fmt.Println("Halo Assalamualaikum", nama+", Salam Kenal Yak")
 		fmt.Println("=============================================")
 	}
 }
