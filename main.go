@@ -1,10 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+	"strconv"
+)
 
 type Person struct {
-	Name   string
-	Gender string
+	Name      string
+	Alamat    string
+	Pekerjaan string
+	Alasan    string
 }
 
 func main() {
@@ -12,32 +18,48 @@ func main() {
 	// tugas1()
 	// tugas2()
 	// tugas3()
-	tugas_closure()
-
+	args, _ := strconv.Atoi(os.Args[1])
+	tugas_CLI(args)
 }
 
-func tugas_closure() {
+func tugas_CLI(os int) {
 	temanHactive := []*Person{
-		{Name: "Sigit Setiawan", Gender: "Pria"},
-		{Name: "Yosef Brahmantyo", Gender: "Pria"},
-		{Name: "Bayu", Gender: "Pria"},
-		{Name: "Satrio", Gender: "Pria"},
-		{Name: "Agus", Gender: "Pria"},
-		{Name: "Yudha", Gender: "Pria"},
-		{Name: "Peter", Gender: "Pria"},
-		{Name: "Aulia", Gender: "Wanita"},
-		{Name: "Thalia", Gender: "Wanita"},
-		{Name: "Giva", Gender: "Wanita"},
+		{Name: "Sigit Setiawan", Alamat: "Jakarta", Pekerjaan: "IT Security", Alasan: "Gabut"},
+		{Name: "Yosef Brahmantyo", Alamat: "Surabaya", Pekerjaan: "Middleware Programmer", Alasan: "Iseng"},
 	}
 
-	loop := func(persons []*Person) {
-		for _, i := range persons {
-			fmt.Println("- "+i.Name+",", i.Gender)
+	loop := func(persons []*Person, os int) {
+		for key, i := range persons {
+			if key == os {
+				fmt.Println("Nama: "+i.Name+",", "Alamat: "+i.Alamat+",", "Pekerjaan: "+i.Pekerjaan+",", "Alasan: "+i.Alasan)
+			}
 		}
 	}
-
-	loop(temanHactive)
+	loop(temanHactive, os)
 }
+
+// func tugas_closure() {
+// 	temanHactive := []*Person{
+// 		{Name: "Sigit Setiawan", Gender: "Pria"},
+// 		{Name: "Yosef Brahmantyo", Gender: "Pria"},
+// 		{Name: "Bayu", Gender: "Pria"},
+// 		{Name: "Satrio", Gender: "Pria"},
+// 		{Name: "Agus", Gender: "Pria"},
+// 		{Name: "Yudha", Gender: "Pria"},
+// 		{Name: "Peter", Gender: "Pria"},
+// 		{Name: "Aulia", Gender: "Wanita"},
+// 		{Name: "Thalia", Gender: "Wanita"},
+// 		{Name: "Giva", Gender: "Wanita"},
+// 	}
+
+// 	loop := func(persons []*Person) {
+// 		for _, i := range persons {
+// 			fmt.Println("- "+i.Name+",", i.Gender)
+// 		}
+// 	}
+
+// 	loop(temanHactive)
+// }
 
 func tugas3() {
 	binatang := map[string]interface{}{
