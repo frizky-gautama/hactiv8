@@ -2,8 +2,7 @@ package main
 
 import (
 	"fmt"
-	"os"
-	"strconv"
+	"hactiv8/Service"
 )
 
 type Person struct {
@@ -14,29 +13,50 @@ type Person struct {
 }
 
 func main() {
+	var db []*Service.User
+	serviceUser := Service.HandlerFunc(db)
+	temanHactive := []*Service.User{
+		{Nama: "Sigit Setiawan", Age: "37"},
+		{Nama: "Yosef Brahmantyo", Age: "42"},
+	}
+
+	for _, val := range temanHactive {
+		insert := serviceUser.CreateUser(val)
+		fmt.Println(insert)
+	}
+
+	dataShow := serviceUser.GetAllUser()
+	fmt.Println("=== Show Users ===")
+	for _, val := range dataShow {
+		printUser(val.Nama)
+	}
 
 	// tugas1()
 	// tugas2()
 	// tugas3()
-	args, _ := strconv.Atoi(os.Args[1])
-	tugas_CLI(args)
+	// args, _ := strconv.Atoi(os.Args[1])
+	// tugas_CLI(args)
 }
 
-func tugas_CLI(os int) {
-	temanHactive := []*Person{
-		{Name: "Sigit Setiawan", Alamat: "Jakarta", Pekerjaan: "IT Security", Alasan: "Gabut"},
-		{Name: "Yosef Brahmantyo", Alamat: "Surabaya", Pekerjaan: "Middleware Programmer", Alasan: "Iseng"},
-	}
-
-	loop := func(persons []*Person, os int) {
-		for key, i := range persons {
-			if key == os {
-				fmt.Println("Nama: "+i.Name+",", "Alamat: "+i.Alamat+",", "Pekerjaan: "+i.Pekerjaan+",", "Alasan: "+i.Alasan)
-			}
-		}
-	}
-	loop(temanHactive, os)
+func printUser(nama string) {
+	fmt.Println(nama)
 }
+
+// func tugas_CLI(os int) {
+// 	temanHactive := []*Person{
+// 		{Name: "Sigit Setiawan", Alamat: "Jakarta", Pekerjaan: "IT Security", Alasan: "Gabut"},
+// 		{Name: "Yosef Brahmantyo", Alamat: "Surabaya", Pekerjaan: "Middleware Programmer", Alasan: "Iseng"},
+// 	}
+
+// 	loop := func(persons []*Person, os int) {
+// 		for key, i := range persons {
+// 			if key == os {
+// 				fmt.Println("Nama: "+i.Name+",", "Alamat: "+i.Alamat+",", "Pekerjaan: "+i.Pekerjaan+",", "Alasan: "+i.Alasan)
+// 			}
+// 		}
+// 	}
+// 	loop(temanHactive, os)
+// }
 
 // func tugas_closure() {
 // 	temanHactive := []*Person{
